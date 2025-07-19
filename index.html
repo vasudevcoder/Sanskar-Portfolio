@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sanskar Srivastav - Interactive Terminal Portfolio</title>
+  <title>Sanskar Srivastav - Interactive Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -47,7 +47,14 @@
     }
 
     .hero-body {
-      padding: 2rem 1.5rem;
+      padding: 1rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
     }
 
     .glass-panel {
@@ -65,18 +72,23 @@
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     }
 
+    /* Sidebar Styles */
+    .sidebar {
+      padding: 1.5rem !important;
+    }
+
     .sidebar-image {
-      width: 150px;
-      height: 150px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       border: 2px solid var(--accent-color);
       object-fit: cover;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       transition: all 0.3s ease;
     }
 
     .header-name {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       background: linear-gradient(90deg, var(--accent-color), #7fdbff);
       -webkit-background-clip: text;
       background-clip: text;
@@ -84,10 +96,17 @@
       margin-bottom: 0.5rem;
     }
 
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
     .social-icons a {
       color: var(--text-secondary);
-      font-size: 1.2rem;
-      margin: 0 0.5rem;
+      font-size: 1.1rem;
       transition: all 0.3s ease;
     }
 
@@ -96,6 +115,7 @@
       transform: translateY(-3px);
     }
 
+    /* Terminal Styles */
     .terminal {
       border-radius: 10px;
       overflow: hidden;
@@ -105,17 +125,17 @@
 
     .terminal-bar {
       background: var(--terminal-bar);
-      padding: 0.7rem 1rem;
+      padding: 0.5rem 1rem;
       display: flex;
       align-items: center;
       transition: all 0.3s ease;
     }
 
     .terminal-btn {
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      margin-right: 8px;
+      margin-right: 6px;
       transition: all 0.3s ease;
     }
 
@@ -125,8 +145,8 @@
 
     .terminal-window {
       background: var(--terminal-bg);
-      height: calc(100% - 46px);
-      padding: 1rem;
+      height: calc(100% - 40px);
+      padding: 0.8rem;
       font-family: 'Fira Code', monospace;
       overflow-y: auto;
       transition: all 0.3s ease;
@@ -135,6 +155,7 @@
     .terminal-line {
       margin-bottom: 0.5rem;
       line-height: 1.5;
+      font-size: 0.9rem;
     }
 
     .prompt { color: var(--success); }
@@ -142,12 +163,12 @@
     .code { color: var(--accent-color); }
     .link { color: var(--accent-color); text-decoration: underline; cursor: pointer; }
     .warning { color: var(--warning); }
-    .skill-bar { display: inline-block; height: 10px; background: var(--accent-color); border-radius: 5px; }
+    .skill-bar { display: inline-block; height: 8px; background: var(--accent-color); border-radius: 4px; }
 
     .cursor {
       display: inline-block;
-      width: 8px;
-      height: 16px;
+      width: 6px;
+      height: 14px;
       background: var(--accent-color);
       animation: blink 1s infinite;
       vertical-align: middle;
@@ -158,45 +179,89 @@
       50% { opacity: 0; }
     }
 
-    .typewriter {
+    /* Coffee Button */
+    .coffee-btn {
+      position: relative;
+      background: var(--coffee);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
       overflow: hidden;
-      border-right: 2px solid var(--accent-color);
-      white-space: nowrap;
-      margin: 0 auto;
-      letter-spacing: 1px;
-      animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: var(--accent-color); }
-    }
-
-    .project-card {
-      background: var(--secondary-bg);
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-left: 3px solid var(--accent-color);
       transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(111, 78, 55, 0.3);
+      margin: 0.5rem 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .project-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    .coffee-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(111, 78, 55, 0.4);
     }
 
+    .coffee-btn:active {
+      transform: translateY(1px);
+    }
+
+    .coffee-icon {
+      margin-right: 6px;
+      font-size: 1rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .steam {
+      position: absolute;
+      background: white;
+      border-radius: 8px;
+      opacity: 0.8;
+    }
+
+    .steam-1 {
+      width: 6px;
+      height: 15px;
+      top: -12px;
+      left: 12px;
+      animation: steam-anim 3s ease-out infinite;
+    }
+
+    .steam-2 {
+      width: 5px;
+      height: 12px;
+      top: -10px;
+      left: 20px;
+      animation: steam-anim 3s ease-out 0.5s infinite;
+    }
+
+    .steam-3 {
+      width: 4px;
+      height: 10px;
+      top: -8px;
+      left: 28px;
+      animation: steam-anim 3s ease-out 1s infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    @keyframes steam-anim {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      100% { transform: translateY(-15px) scale(1.3); opacity: 0; }
+    }
+
+    /* Theme Switch */
     .theme-switch {
       position: relative;
       display: inline-block;
-      width: 60px;
-      height: 30px;
-      margin-top: 1rem;
+      width: 50px;
+      height: 25px;
+      margin: 0.5rem 0;
     }
 
     .theme-switch input {
@@ -214,14 +279,14 @@
       bottom: 0;
       background-color: var(--terminal-bar);
       transition: .4s;
-      border-radius: 34px;
+      border-radius: 25px;
     }
 
     .slider:before {
       position: absolute;
       content: "";
-      height: 22px;
-      width: 22px;
+      height: 18px;
+      width: 18px;
       left: 4px;
       bottom: 4px;
       background-color: var(--accent-color);
@@ -229,166 +294,129 @@
       border-radius: 50%;
     }
 
-    input:checked + .slider {
-      background-color: var(--terminal-bar);
-    }
-
     input:checked + .slider:before {
-      transform: translateX(30px);
+      transform: translateX(24px);
     }
 
     .slider i {
       position: absolute;
-      top: 6px;
+      top: 5px;
       color: var(--text-primary);
+      font-size: 0.7rem;
     }
 
-    .fa-sun { left: 8px; }
-    .fa-moon { right: 8px; }
+    .fa-sun { left: 6px; }
+    .fa-moon { right: 6px; }
 
-    /* Coffee Button Styles */
-    .coffee-btn {
-      position: relative;
-      background: var(--coffee);
-      color: white;
-      border: none;
-      border-radius: 50px;
-      padding: 12px 24px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      overflow: hidden;
+    /* Project Cards */
+    .project-card {
+      background: var(--secondary-bg);
+      border-radius: 8px;
+      padding: 0.8rem;
+      margin-bottom: 0.8rem;
+      border-left: 3px solid var(--accent-color);
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(111, 78, 55, 0.3);
-      margin-top: 1rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    .coffee-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(111, 78, 55, 0.4);
+    .project-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
-    .coffee-btn:active {
-      transform: translateY(1px);
+    /* Responsive Layout */
+    .columns {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -0.5rem;
     }
 
-    .coffee-btn::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
-      transform: scale(0);
-      transition: transform 0.7s ease;
+    .column {
+      padding: 0.5rem;
+      flex: 1;
+      min-width: 0;
     }
 
-    .coffee-btn:hover::before {
-      transform: scale(1);
-    }
-
-    .coffee-icon {
-      margin-right: 8px;
-      font-size: 1.2rem;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .steam {
-      position: absolute;
-      background: white;
-      border-radius: 10px;
-      opacity: 0.8;
-    }
-
-    .steam-1 {
-      width: 8px;
-      height: 20px;
-      top: -15px;
-      left: 15px;
-      animation: steam-anim 3s ease-out infinite;
-    }
-
-    .steam-2 {
-      width: 6px;
-      height: 15px;
-      top: -12px;
-      left: 25px;
-      animation: steam-anim 3s ease-out 0.5s infinite;
-    }
-
-    .steam-3 {
-      width: 5px;
-      height: 12px;
-      top: -10px;
-      left: 35px;
-      animation: steam-anim 3s ease-out 1s infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-
-    @keyframes steam-anim {
-      0% { transform: translateY(0) scale(1); opacity: 0.8; }
-      100% { transform: translateY(-20px) scale(1.5); opacity: 0; }
-    }
-
-    /* Responsive Improvements */
-    @media (max-width: 768px) {
+    /* Mobile First Styles */
+    @media (max-width: 767px) {
       .columns {
         flex-direction: column;
       }
-      .column.is-3 {
-        width: 100%;
-        margin-bottom: 1.5rem;
+      
+      .sidebar {
+        margin-bottom: 1rem;
       }
+      
+      .terminal-window {
+        height: 300px;
+      }
+      
+      .sidebar-image {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .header-name {
+        font-size: 1.2rem;
+      }
+      
+      .social-icons a {
+        font-size: 1rem;
+      }
+      
+      .coffee-btn {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Tablet Styles */
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .columns {
+        flex-direction: row;
+      }
+      
+      .column.is-3 {
+        flex: 0 0 35%;
+        max-width: 35%;
+      }
+      
+      .column.is-9 {
+        flex: 0 0 65%;
+        max-width: 65%;
+      }
+      
       .terminal-window {
         height: 400px;
       }
-      .hero-body {
-        padding: 1rem;
+    }
+
+    /* Desktop Styles */
+    @media (min-width: 1024px) {
+      .column.is-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
       }
+      
+      .column.is-9 {
+        flex: 0 0 75%;
+        max-width: 75%;
+      }
+      
+      .terminal-window {
+        height: 500px;
+      }
+      
       .sidebar-image {
-        width: 120px;
-        height: 120px;
+        width: 150px;
+        height: 150px;
       }
+      
       .header-name {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
       }
     }
 
-    @media (max-width: 480px) {
-      .coffee-btn {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-      }
-      .social-icons a {
-        font-size: 1rem;
-        margin: 0 0.3rem;
-      }
-    }
-
-    /* Embeddable Style */
-    .embeddable-mode {
-      margin: 0;
-      padding: 0;
-    }
-    .embeddable-mode .hero.is-fullheight {
-      min-height: auto;
-    }
-    .embeddable-mode .hero-body {
-      padding: 1rem 0;
-    }
-    .embeddable-mode .glass-panel {
-      box-shadow: none;
-    }
-
-    /* Accessibility focus styles */
+    /* Accessibility */
     a:focus, button:focus, input:focus {
       outline: 2px solid var(--accent-color);
       outline-offset: 2px;
@@ -415,14 +443,14 @@
 <section class="hero is-fullheight">
   <div class="hero-body">
     <div class="container">
-      <div class="columns is-variable is-5">
-        <div class="column is-3 is-flex">
-          <div class="sidebar glass-panel" style="padding: 2rem;">
+      <div class="columns">
+        <div class="column is-3">
+          <div class="sidebar glass-panel">
             <div class="has-text-centered">
               <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0lrl9Q9TZ5wOAQq1aa9tBahqjodY4BsiCwsSkUzS_JRGfxW2fjr5xUEL0S0TjmX5S8ezoFd1BzPzOQ0GrfpsJHiofTlmuOVakluz9_bA3UoM_RvHwcEweS-xzkynqmwsyxsp0JTRjEsqRVQfZMIGnqDYro9OVpPyWLuI3Ci-AOFaDzzgNavqVnmOQnYY/s1600/ChatGPT%20Image%20Jul%2019,%202025,%2006_44_44%20PM.png" 
                    alt="Sanskar Srivastav" class="sidebar-image">
               <h2 class="header-name">Sanskar Srivastav</h2>
-              <h5 style="color: var(--accent-color); margin-bottom: 1.5rem;">Web Developer & UI UX Designer</h5>
+              <h5 style="color: var(--accent-color); margin-bottom: 0.5rem;">Sales Manager & After Sales Support</h5>
               
               <div class="social-icons">
                 <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -432,12 +460,12 @@
                 <a href="https://www.linkedin.com/in/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
               </div>
               
-              <a class="button is-small is-link is-outlined mt-3" href="mailto:example@example.com" aria-label="Contact via email">
+              <a class="button is-small is-link is-outlined" href="mailto:example@example.com" aria-label="Contact via email">
                 <span class="icon"><i class="fas fa-envelope"></i></span>
                 <span>Contact Me</span>
               </a>
 
-              <!-- Best Coffee Button -->
+              <!-- Coffee Button -->
               <button class="coffee-btn" id="coffee-btn" aria-label="Buy me a coffee">
                 <span class="coffee-icon">☕</span>
                 <span>Buy Me Coffee</span>
@@ -457,13 +485,13 @@
           </div>
         </div>
         
-        <div class="column is-flex">
+        <div class="column">
           <div class="terminal glass-panel" id="main-content">
             <div class="terminal-bar">
               <div class="terminal-btn btn-close"></div>
               <div class="terminal-btn btn-minimize"></div>
               <div class="terminal-btn btn-maximize"></div>
-              <div style="color: var(--text-secondary); font-family: 'Fira Code'; font-size: 0.8rem; text-align: center; flex-grow: 1;">
+              <div style="color: var(--text-secondary); font-family: 'Fira Code'; font-size: 0.7rem; text-align: center; flex-grow: 1;">
                 sans.terminal ~ bash — 80×24
               </div>
             </div>
@@ -471,7 +499,7 @@
             <div class="terminal-window" onclick="document.getElementById('command-input').focus();">
               <div class="terminal-output" id="terminalOutput">
                 <div class="terminal-line">
-                  <span class="typewriter" style="color: var(--text-secondary);">Welcome to Sanskar's interactive portfolio. Type 'help' for commands.</span>
+                  <span style="color: var(--text-secondary);">Welcome to Sanskar's interactive portfolio. Type 'help' for commands.</span>
                 </div>
               </div>
               
@@ -570,7 +598,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <span class="code">theme</span> - Toggle light/dark mode<br>
         <span class="code">coffee</span> - Buy me a coffee<br>
         <span class="code">clear</span> - Clear terminal<br><br>
-        <span class="warning">Tip:</span> Press <span class="code">↑/↓</span> to navigate command history, <span class="code">Tab</span> to autocomplete
+        <span class="warning">Tip:</span> Press <span class="code">↑/↓</span> to navigate command history
       `
     },
     
@@ -581,11 +609,11 @@ document.addEventListener('DOMContentLoaded', function() {
         Hello! I'm Sanskar Srivastav, a 17-year-old Sales Manager and After Sales Support professional based in India.<br><br>
         
         <span class="code">Key Attributes:</span><br>
-        • Passionate about customer service and building lasting relationships<br>
-        • Strong problem-solving and communication skills<br>
-        • Quick learner with adaptability to new technologies<br><br>
+        • Passionate about customer service<br>
+        • Strong communication skills<br>
+        • Quick learner with tech adaptability<br><br>
         
-        When I'm not working, I enjoy learning about new technologies and improving my skills.
+        When I'm not working, I enjoy learning about new technologies.
       `
     },
     
@@ -594,18 +622,16 @@ document.addEventListener('DOMContentLoaded', function() {
       execute: () => `
         <span class="code">Professional Experience:</span><br><br>
         <strong>Sales Manager</strong> (2021-Present)<br>
-        • Managed sales operations and customer relationships<br>
-        • Developed sales strategies that increased revenue by 30%<br>
-        • Led a team of 5 sales representatives<br><br>
+        • Managed sales operations<br>
+        • Increased revenue by 30%<br>
+        • Led team of 5 representatives<br><br>
         
         <strong>After Sales Support</strong> (2020-2021)<br>
-        • Handled customer complaints and service requests<br>
-        • Maintained 95%+ customer satisfaction rating<br>
-        • Implemented new support ticketing system<br><br>
+        • Handled customer service<br>
+        • 95%+ satisfaction rating<br><br>
         
-        <strong>Sales Intern</strong> (Summer 2019)<br>
-        • Assisted senior sales staff with daily operations<br>
-        • Learned fundamentals of sales and customer service
+        <strong>Sales Intern</strong> (2019)<br>
+        • Assisted senior sales staff
       `
     },
     
@@ -613,15 +639,13 @@ document.addEventListener('DOMContentLoaded', function() {
       description: "Skills and expertise",
       execute: () => `
         <span class="code">Skills:</span><br><br>
-        <strong>Sales & Customer Service</strong><br>
-        • Customer Relationship Management <span class="skill-bar" style="width: 90%"></span><br>
-        • Negotiation <span class="skill-bar" style="width: 85%"></span><br>
-        • Problem Solving <span class="skill-bar" style="width: 88%"></span><br><br>
+        <strong>Sales & Service</strong><br>
+        • CRM <span class="skill-bar" style="width: 90%"></span><br>
+        • Negotiation <span class="skill-bar" style="width: 85%"></span><br><br>
         
-        <strong>Technical Skills</strong><br>
+        <strong>Technical</strong><br>
         • HTML/CSS <span class="skill-bar" style="width: 75%"></span><br>
-        • Template Distribution <span class="skill-bar" style="width: 80%"></span><br>
-        • Microsoft Office <span class="skill-bar" style="width: 90%"></span><br><br>
+        • Office <span class="skill-bar" style="width: 90%"></span><br><br>
         
         <strong>Languages</strong><br>
         • English (Fluent)<br>
@@ -635,27 +659,17 @@ document.addEventListener('DOMContentLoaded', function() {
         <span class="code">Featured Projects:</span><br><br>
         
         <div class="project-card">
-          <strong>Customer Portal Redesign</strong><br>
-          • Redesigned customer portal interface<br>
-          • Improved navigation and accessibility<br>
-          • Resulted in 40% faster issue resolution<br>
-          <span onclick="showProjectDetails('portal')" class="link">View details</span>
+          <strong>Customer Portal</strong><br>
+          • Redesigned interface<br>
+          • 40% faster resolution<br>
+          <span onclick="showProjectDetails('portal')" class="link">Details</span>
         </div>
         
         <div class="project-card">
-          <strong>Sales Training Program</strong><br>
-          • Developed comprehensive training materials<br>
-          • Conducted workshops for new hires<br>
-          • Reduced onboarding time by 25%<br>
-          <span onclick="showProjectDetails('training')" class="link">View details</span>
-        </div>
-        
-        <div class="project-card">
-          <strong>Support Knowledge Base</strong><br>
-          • Created searchable knowledge base<br>
-          • Documented common issues and solutions<br>
-          • Decreased support calls by 30%<br>
-          <span onclick="showProjectDetails('knowledge')" class="link">View details</span>
+          <strong>Sales Training</strong><br>
+          • Training materials<br>
+          • 25% faster onboarding<br>
+          <span onclick="showProjectDetails('training')" class="link">Details</span>
         </div>
       `
     },
@@ -663,13 +677,12 @@ document.addEventListener('DOMContentLoaded', function() {
     contact: {
       description: "Contact information",
       execute: () => `
-        You can reach me at:<br><br>
+        Reach me at:<br><br>
         • Email: <span class="code">example@example.com</span><br>
-        • Telegram: <a href="https://telegram.dog/mr_sanskar_168" class="link" target="_blank" rel="noopener noreferrer">@mr_sanskar_168</a><br>
-        • Instagram: <a href="https://www.instagram.com/mr_sanskar_168/" class="link" target="_blank" rel="noopener noreferrer">@mr_sanskar_168</a><br>
-        • LinkedIn: <a href="https://linkedin.com/in/" class="link" target="_blank" rel="noopener noreferrer">Sanskar Srivastav</a><br><br>
+        • Telegram: <a href="https://t.me/mr_sanskar_168" class="link">@mr_sanskar_168</a><br>
+        • Instagram: <a href="https://instagram.com/mr_sanskar_168" class="link">@mr_sanskar_168</a><br><br>
         
-        <button onclick="showContactForm()" class="button is-small is-link is-outlined">Send Message</button>
+        <button onclick="showContactForm()" class="button is-small is-link is-outlined">Message</button>
       `
     },
     
@@ -680,14 +693,14 @@ document.addEventListener('DOMContentLoaded', function() {
         setTheme(newTheme);
         localStorage.setItem('portfolio-theme', newTheme);
         themeToggle.checked = newTheme === 'light';
-        return `Theme changed to <span class="code">${newTheme}</span> mode`;
+        return `Theme changed to <span class="code">${newTheme}</span>`;
       }
     },
     
     coffee: {
       description: "Buy me a coffee",
       execute: () => {
-        document.getElementById('coffee-btn').click();
+        coffeeBtn.click();
         return `Opening coffee interface...`;
       }
     },
@@ -698,55 +711,6 @@ document.addEventListener('DOMContentLoaded', function() {
         terminalOutput.innerHTML = '';
         return '';
       }
-    },
-    
-    // Easter eggs
-    sudo: {
-      description: "Make me a sandwich",
-      execute: () => `<span style="color: var(--error);">Error:</span> Permission denied. Did you mean 'make me a sandwich'?`
-    },
-    
-    neofetch: {
-      description: "Show system information",
-      execute: () => `
-        <div style="font-family: 'Fira Code';">
-          <span class="directory">sanskar@portfolio</span><br>
-          ----------------------------<br>
-          <span class="prompt">OS:</span> SanskarOS 17.0<br>
-          <span class="prompt">Shell:</span> bash 5.0<br>
-          <span class="prompt">Skills:</span> Sales, Support, Tech<br>
-          <span class="prompt">Location:</span> India<br>
-          <span class="prompt">Theme:</span> ${currentTheme}<br>
-          <span class="prompt">Terminal:</span> Web v2.0<br>
-          <span class="prompt">Motto:</span> "Customer satisfaction first"
-        </div>
-      `
-    },
-    
-    make: {
-      description: "Make me a sandwich",
-      execute: () => `Okay. Making you a sandwich...<br><br>
-        <pre style="color: var(--accent-color);">
-        🍞~~~~~~🍞
-        |  🥪  |
-        🍞~~~~~~🍞
-        </pre>
-        Here you go! Enjoy your sandwich.`
-    },
-    
-    secret: {
-      description: "You found a secret command!",
-      hidden: true,
-      execute: () => {
-        const messages = [
-          "The cake is a lie.",
-          "There are no secrets here... or are there?",
-          "You found me! But there's nothing here.",
-          "Try typing 'make me a sandwich'",
-          "01010100 01101000 01101001 01110011 00100000 01101001 01110011 00100000 01100010 01101001 01101110 01100001 01110010 01111001 00100000 01100110 01101111 01110010 00100000 01101000 01101001"
-        ];
-        return messages[Math.floor(Math.random() * messages.length)];
-      }
     }
   };
 
@@ -756,46 +720,14 @@ document.addEventListener('DOMContentLoaded', function() {
     'ls': 'help',
     'whoami': 'about',
     'cv': 'experience',
-    'resume': 'experience',
     'social': 'contact',
-    'email': 'contact',
     'switch': 'theme',
     'cls': 'clear',
-    'exit': 'clear',
     'brew': 'coffee'
   };
 
-  // Tab completion
-  const commandList = Object.keys(COMMANDS).filter(cmd => !COMMANDS[cmd].hidden);
-
   // Handle command input
   inputField.addEventListener('keydown', function(e) {
-    // Tab completion
-    if (e.key === 'Tab') {
-      e.preventDefault();
-      const input = this.value.trim().toLowerCase();
-      
-      if (!input) return;
-      
-      // Find matching commands
-      const matches = commandList.filter(cmd => cmd.startsWith(input));
-      
-      if (matches.length === 1) {
-        this.value = matches[0];
-      } else if (matches.length > 1) {
-        terminalOutput.innerHTML += `
-          <div class="terminal-line">
-            <span class="prompt">➜</span>
-            <span class="directory">~</span>
-            ${input}
-          </div>
-          <div class="terminal-line">${matches.join(' ')}</div>
-        `;
-        terminalOutput.scrollTop = terminalOutput.scrollHeight;
-      }
-    }
-    
-    // Command history navigation
     if (e.key === 'ArrowUp') {
       e.preventDefault();
       if (commandHistory.length > 0 && historyIndex < commandHistory.length - 1) {
@@ -814,7 +746,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  inputField.addEventListener('keypress', async function(e) {
+  inputField.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
       const input = this.value.trim();
       this.value = '';
@@ -839,14 +771,14 @@ document.addEventListener('DOMContentLoaded', function() {
       const baseCommand = ALIASES[command] || command;
       
       if (COMMANDS[baseCommand]) {
-        const output = await COMMANDS[baseCommand].execute();
+        const output = COMMANDS[baseCommand].execute();
         if (output) {
           terminalOutput.innerHTML += `<div class="terminal-line">${output}</div>`;
         }
       } else {
         terminalOutput.innerHTML += `
           <div class="terminal-line">
-            <span style="color: var(--error);">Error:</span> Command not found. Type <span class="code">help</span> for available commands.
+            <span style="color: var(--error);">Error:</span> Command not found. Type <span class="code">help</span> for commands.
           </div>
         `;
       }
@@ -860,52 +792,26 @@ document.addEventListener('DOMContentLoaded', function() {
   window.showProjectDetails = function(projectId) {
     const details = {
       portal: `
-        <span class="code">Customer Portal Redesign</span><br><br>
-        <strong>Challenge:</strong> Outdated interface caused customer frustration<br>
-        <strong>Solution:</strong> Complete UI overhaul with focus on usability<br>
-        <strong>Technologies:</strong> HTML, CSS, JavaScript<br>
+        <span class="code">Customer Portal</span><br><br>
+        <strong>Challenge:</strong> Outdated interface<br>
+        <strong>Solution:</strong> UI overhaul<br>
         <strong>Results:</strong><br>
-        • 40% faster issue resolution<br>
-        • 25% reduction in support calls<br>
-        • Customer satisfaction increased to 98%<br><br>
-        <span class="warning">Note:</span> Confidential details omitted
+        • 40% faster resolution<br>
+        • 25% less support calls<br><br>
+        <span onclick="terminalOutput.innerHTML += '<div class=\\'terminal-line\\'>${COMMANDS.projects.execute()}</div>'" class="link">← Back</span>
       `,
       training: `
-        <span class="code">Sales Training Program</span><br><br>
-        <strong>Challenge:</strong> Inconsistent onboarding for new hires<br>
-        <strong>Solution:</strong> Standardized training curriculum<br>
-        <strong>Components:</strong><br>
-        • Product knowledge modules<br>
-        • Sales technique workshops<br>
-        • Role-playing exercises<br>
-        • Assessment quizzes<br><br>
+        <span class="code">Sales Training</span><br><br>
+        <strong>Challenge:</strong> Inconsistent onboarding<br>
+        <strong>Solution:</strong> Standardized training<br>
         <strong>Results:</strong><br>
         • 25% faster onboarding<br>
-        • Higher first-month sales performance<br>
-        • Improved team consistency
-      `,
-      knowledge: `
-        <span class="code">Support Knowledge Base</span><br><br>
-        <strong>Challenge:</strong> Repetitive support calls for common issues<br>
-        <strong>Solution:</strong> Searchable knowledge base with solutions<br>
-        <strong>Features:</strong><br>
-        • Step-by-step troubleshooting<br>
-        • Video tutorials<br>
-        • FAQ section<br>
-        • Feedback system<br><br>
-        <strong>Results:</strong><br>
-        • 30% reduction in support calls<br>
-        • Faster customer self-service<br>
-        • Improved support team efficiency
+        • Better performance<br><br>
+        <span onclick="terminalOutput.innerHTML += '<div class=\\'terminal-line\\'>${COMMANDS.projects.execute()}</div>'" class="link">← Back</span>
       `
     };
     
-    terminalOutput.innerHTML += `
-      <div class="terminal-line">${details[projectId]}</div>
-      <div class="terminal-line">
-        <span onclick="terminalOutput.innerHTML += '<div class=\\'terminal-line\\'>${COMMANDS.projects.execute()}</div>'" class="link">← Back to projects</span>
-      </div>
-    `;
+    terminalOutput.innerHTML += `<div class="terminal-line">${details[projectId]}</div>`;
     terminalOutput.scrollTop = terminalOutput.scrollHeight;
   };
 
@@ -919,30 +825,15 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div style="margin-bottom: 0.5rem;">
           <label style="display: block; margin-bottom: 0.2rem;">Message:</label>
-          <textarea style="width: 100%; height: 100px; padding: 0.3rem; background: var(--secondary-bg); border: 1px solid var(--terminal-bar); color: var(--text-primary); border-radius: 4px;"></textarea>
+          <textarea style="width: 100%; height: 80px; padding: 0.3rem; background: var(--secondary-bg); border: 1px solid var(--terminal-bar); color: var(--text-primary); border-radius: 4px;"></textarea>
         </div>
-        <button onclick="terminalOutput.innerHTML += '<div class=\\'terminal-line\\'>Thank you! Your message has been sent (not really, this is a demo).</div>'" class="button is-small is-link">Send</button>
+        <button onclick="terminalOutput.innerHTML += '<div class=\\'terminal-line\\'>Thank you! Message sent.</div>'" class="button is-small is-link">Send</button>
         <button onclick="terminalOutput.innerHTML += '<div class=\\'terminal-line\\'>${COMMANDS.contact.execute()}</div>'" class="button is-small is-outlined" style="margin-left: 0.5rem;">Cancel</button>
       </div>
     `;
     terminalOutput.scrollTop = terminalOutput.scrollHeight;
   };
 });
-
-// Initialize typewriter effect
-document.addEventListener('DOMContentLoaded', function() {
-  const typewriter = document.querySelector('.typewriter');
-  setTimeout(() => {
-    typewriter.style.animation = 'none';
-    typewriter.style.borderRight = 'none';
-    typewriter.style.whiteSpace = 'normal';
-  }, 3500);
-});
-
-// Make embeddable
-function setEmbeddableMode() {
-  document.body.classList.add('embeddable-mode');
-}
 </script>
 </body>
 </html>
