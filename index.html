@@ -1,754 +1,761 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanskar Srivastav | Premium Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #0f172a;
-            --secondary: #1e293b;
-            --accent: #7c3aed;
-            --accent-light: #8b5cf6;
-            --text: #f8fafc;
-            --text-secondary: #94a3b8;
-            --success: #10b981;
-            --error: #ef4444;
-            --coffee: #f59e0b;
-            --glass: rgba(30, 41, 59, 0.7);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskar Srivastav - Interactive Terminal Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-bg: #0a192f;
+      --secondary-bg: #172a45;
+      --accent-color: #64ffda;
+      --text-primary: #ccd6f6;
+      --text-secondary: #8892b0;
+      --terminal-bg: rgba(30, 42, 71, 0.9);
+      --terminal-bar: #2d3a5a;
+      --success: #8dd39e;
+      --error: #d7566a;
+      --directory: #75e1e7;
+      --warning: #ffcc00;
+    }
 
-        /* Floating Particles Background */
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: radial-gradient(ellipse at bottom, var(--primary), #020617);
-            color: var(--text);
-            min-height: 100vh;
-            margin: 0;
-            overflow-x: hidden;
-            position: relative;
-        }
+    [data-theme="light"] {
+      --primary-bg: #f0f4f8;
+      --secondary-bg: #ffffff;
+      --accent-color: #3a86ff;
+      --text-primary: #2b2d42;
+      --text-secondary: #4a4e69;
+      --terminal-bg: rgba(255, 255, 255, 0.9);
+      --terminal-bar: #e2e8f0;
+      --success: #2e7d32;
+      --error: #c62828;
+      --directory: #1565c0;
+    }
 
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(139, 92, 246, 0.15);
-            filter: blur(1px);
-            z-index: -1;
-            animation: float linear infinite;
-        }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--primary-bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      transition: all 0.3s ease;
+    }
 
-        @keyframes float {
-            to { transform: translateY(-100vh) rotate(360deg); }
-        }
+    .hero-body {
+      padding: 2rem 1.5rem;
+    }
 
-        /* Glassmorphism Effect */
-        .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-            overflow: hidden;
-            position: relative;
-        }
+    .glass-panel {
+      background: rgba(23, 42, 69, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      border: 1px solid rgba(100, 255, 218, 0.2);
+      box-shadow: 0 8px 32px rgba(2, 12, 27, 0.3);
+      transition: all 0.3s ease;
+    }
 
-        .glass-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(124, 58, 237, 0.3);
-            border-color: rgba(124, 58, 237, 0.3);
-        }
+    [data-theme="light"] .glass-panel {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(58, 134, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
 
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                to bottom right,
-                rgba(100, 255, 218, 0) 0%,
-                rgba(100, 255, 218, 0.1) 50%,
-                rgba(100, 255, 218, 0) 100%
-            );
-            transform: rotate(30deg);
-            animation: holographic 8s linear infinite;
-            pointer-events: none;
-        }
+    .sidebar-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-color);
+      object-fit: cover;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
 
-        @keyframes holographic {
-            0% { transform: translateY(-100%) rotate(30deg); }
-            100% { transform: translateY(100%) rotate(30deg); }
-        }
+    .header-name {
+      font-size: 1.6rem;
+      background: linear-gradient(90deg, var(--accent-color), #7fdbff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.5rem;
+    }
 
-        /* Container Layout */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 2rem;
-            min-height: 100vh;
-            align-items: center;
-        }
+    .social-icons a {
+      color: var(--text-secondary);
+      font-size: 1.2rem;
+      margin: 0 0.5rem;
+      transition: all 0.3s ease;
+    }
 
-        /* Profile Section */
-        .profile-section {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
+    .social-icons a:hover {
+      color: var(--accent-color);
+      transform: translateY(-3px);
+    }
 
-        .profile-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--accent);
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
-            transition: all 0.4s ease;
-            position: relative;
-            z-index: 1;
-        }
+    .terminal {
+      border-radius: 10px;
+      overflow: hidden;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
 
-        .profile-image:hover {
-            transform: scale(1.05) rotate(5deg);
-            box-shadow: 0 0 50px rgba(124, 58, 237, 0.8);
-        }
+    .terminal-bar {
+      background: var(--terminal-bar);
+      padding: 0.7rem 1rem;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
 
-        .pulse-ring {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-            border: 2px solid var(--accent);
-            border-radius: 50%;
-            opacity: 0;
-            animation: pulse 3s ease-out infinite;
-            z-index: 0;
-        }
+    .terminal-btn {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 8px;
+      transition: all 0.3s ease;
+    }
 
-        @keyframes pulse {
-            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.7; }
-            70% { transform: translate(-50%, -50%) scale(1.1); opacity: 0; }
-            100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0; }
-        }
+    .btn-close { background: #ff5f56; }
+    .btn-minimize { background: #ffbd2e; }
+    .btn-maximize { background: #27c93f; }
 
-        .name {
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-align: center;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 10px rgba(124, 58, 237, 0.3);
-        }
+    .terminal-window {
+      background: var(--terminal-bg);
+      height: calc(100% - 46px);
+      padding: 1rem;
+      font-family: 'Fira Code', monospace;
+      overflow-y: auto;
+      transition: all 0.3s ease;
+    }
 
-        .title {
-            color: var(--text-secondary);
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            font-weight: 400;
-        }
+    .terminal-line {
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+    }
 
-        /* Social Icons */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
+    .prompt { color: var(--success); }
+    .directory { color: var(--directory); }
+    .code { color: var(--accent-color); }
+    .link { color: var(--accent-color); text-decoration: underline; cursor: pointer; }
+    .warning { color: var(--warning); }
+    .skill-bar { display: inline-block; height: 10px; background: var(--accent-color); border-radius: 5px; }
 
-        .social-link {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(124, 58, 237, 0.1);
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-            position: relative;
-            overflow: hidden;
-        }
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 16px;
+      background: var(--accent-color);
+      animation: blink 1s infinite;
+      vertical-align: middle;
+    }
 
-        .social-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.4), transparent);
-            transition: all 0.6s ease;
-        }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
 
-        .social-link:hover {
-            color: var(--text);
-            background: var(--accent);
-            transform: translateY(-5px) rotate(10deg) scale(1.1);
-            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
-        }
+    .typewriter {
+      overflow: hidden;
+      border-right: 2px solid var(--accent-color);
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: 1px;
+      animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
 
-        .social-link:hover::before {
-            left: 100%;
-        }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
 
-        /* Action Buttons */
-        .action-buttons {
-            margin-top: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: var(--accent-color); }
+    }
 
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.6rem;
-            padding: 0.8rem 1.2rem;
-            border-radius: 12px;
-            font-weight: 500;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            border: none;
-            cursor: pointer;
-        }
+    .project-card {
+      background: var(--secondary-bg);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 3px solid var(--accent-color);
+      transition: all 0.3s ease;
+    }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: translateX(-100%);
-            transition: all 0.6s ease;
-            z-index: -1;
-        }
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
 
-        .btn:hover::before {
-            transform: translateX(100%);
-        }
+    .theme-switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+      margin-top: 1rem;
+    }
 
-        .btn-coffee {
-            background: rgba(245, 158, 11, 0.15);
-            color: var(--coffee);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
+    .theme-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
 
-        .btn-coffee:hover {
-            background: rgba(245, 158, 11, 0.25);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
-        }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--terminal-bar);
+      transition: .4s;
+      border-radius: 34px;
+    }
 
-        .btn-contact {
-            background: rgba(124, 58, 237, 0.15);
-            color: var(--accent-light);
-            border: 1px solid rgba(124, 58, 237, 0.3);
-        }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 4px;
+      bottom: 4px;
+      background-color: var(--accent-color);
+      transition: .4s;
+      border-radius: 50%;
+    }
 
-        .btn-contact:hover {
-            background: rgba(124, 58, 237, 0.25);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3);
-        }
+    input:checked + .slider {
+      background-color: var(--terminal-bar);
+    }
 
-        .btn i {
-            transition: all 0.3s ease;
-        }
+    input:checked + .slider:before {
+      transform: translateX(30px);
+    }
 
-        .btn:hover i {
-            transform: scale(1.2);
-        }
+    .slider i {
+      position: absolute;
+      top: 6px;
+      color: var(--text-primary);
+    }
 
-        /* Terminal Styles */
-        .terminal-container {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
+    .fa-sun { left: 8px; }
+    .fa-moon { right: 8px; }
 
-        .terminal {
-            border-radius: 20px;
-            overflow: hidden;
-            height: 100%;
-            transform-style: preserve-3d;
-        }
+    @media (max-width: 768px) {
+      .columns {
+        flex-direction: column;
+      }
+      .column.is-3 {
+        width: 100%;
+        margin-bottom: 1.5rem;
+      }
+      .terminal-window {
+        height: 400px;
+      }
+    }
 
-        .terminal::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 20px;
-            background: linear-gradient(135deg, 
-                rgba(100, 255, 218, 0.1) 0%, 
-                rgba(100, 255, 218, 0) 50%, 
-                rgba(100, 255, 218, 0.1) 100%);
-            pointer-events: none;
-            z-index: -1;
-        }
+    /* Accessibility focus styles */
+    a:focus, button:focus, input:focus {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+    }
 
-        .terminal-header {
-            padding: 0.8rem 1.2rem;
-            background: rgba(15, 23, 42, 0.7);
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--accent-color);
+      color: var(--primary-bg);
+      padding: 8px;
+      z-index: 100;
+      transition: top 0.3s;
+    }
 
-        .terminal-buttons {
-            display: flex;
-            gap: 0.6rem;
-        }
-
-        .terminal-button {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .terminal-button:hover {
-            transform: scale(1.2);
-        }
-
-        .btn-close { background: #ff5f56; }
-        .btn-minimize { background: #ffbd2e; }
-        .btn-maximize { background: #27c93f; }
-
-        .terminal-title {
-            flex-grow: 1;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            font-family: 'Fira Code', monospace;
-        }
-
-        .terminal-window {
-            padding: 1.2rem;
-            font-family: 'Fira Code', monospace;
-            height: calc(100% - 48px);
-            overflow-y: auto;
-            scrollbar-width: thin;
-            scrollbar-color: var(--accent) transparent;
-        }
-
-        .terminal-window::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .terminal-window::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .terminal-window::-webkit-scrollbar-thumb {
-            background-color: var(--accent);
-            border-radius: 3px;
-        }
-
-        .terminal-line {
-            margin-bottom: 0.6rem;
-            line-height: 1.6;
-        }
-
-        .prompt {
-            color: var(--success);
-            font-weight: 500;
-        }
-
-        .directory {
-            color: #38bdf8;
-            font-weight: 500;
-        }
-
-        .command {
-            color: var(--text);
-        }
-
-        .output {
-            color: var(--text-secondary);
-        }
-
-        .error {
-            color: var(--error);
-        }
-
-        .success {
-            color: var(--success);
-        }
-
-        .accent {
-            color: var(--accent-light);
-        }
-
-        .input-line {
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        #terminal-input {
-            flex-grow: 1;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: var(--text);
-            font-family: 'Fira Code', monospace;
-            caret-color: var(--accent-light);
-        }
-
-        .terminal-cursor {
-            display: inline-block;
-            width: 8px;
-            height: 18px;
-            background: var(--accent-light);
-            animation: blink 1s infinite, pulse 2s infinite;
-            margin-left: 4px;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7); }
-            50% { box-shadow: 0 0 0 6px rgba(124, 58, 237, 0); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr;
-                padding: 1.5rem;
-            }
-            
-            .profile-section {
-                margin-bottom: 2rem;
-            }
-            
-            .terminal {
-                height: 500px;
-            }
-        }
-
-        /* Confetti Effect */
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background-color: #f00;
-            opacity: 0;
-            z-index: 1000;
-            animation: confetti-fall 3s ease-out forwards;
-        }
-
-        @keyframes confetti-fall {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-    </style>
+    .skip-link:focus {
+      top: 0;
+    }
+  </style>
 </head>
 <body>
-    <!-- Floating Particles Background -->
-    <div id="particles-container"></div>
-
+<a href="#main-content" class="skip-link">Skip to content</a>
+<section class="hero is-fullheight">
+  <div class="hero-body">
     <div class="container">
-        <!-- Profile Section -->
-        <div class="profile-section">
-            <div class="glass-card" style="padding: 2rem; height: 100%;">
-                <div style="position: relative; display: inline-block; margin: 0 auto;">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0lrl9Q9TZ5wOAQq1aa9tBahqjodY4BsiCwsSkUzS_JRGfxW2fjr5xUEL0S0TjmX5S8ezoFd1BzPzOQ0GrfpsJHiofTlmuOVakluz9_bA3UoM_RvHwcEweS-xzkynqmwsyxsp0JTRjEsqRVQfZMIGnqDYro9OVpPyWLuI3Ci-AOFaDzzgNavqVnmOQnYY/s1600/ChatGPT%20Image%20Jul%2019,%202025,%2006_44_44%20PM.png" 
-                         alt="Darshan Gowda" 
-                         class="profile-image">
-                    <div class="pulse-ring"></div>
-                </div>
-                
-                <h1 class="name">Sankar Srivastav</h1>
-                <p class="title">Sales Manager & After Sales Support</p>
-                
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://t.me/+RStZXln6Z4o5ZjY1" class="social-link"><i class="fab fa-telegram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                </div>
-                
-                <div class="action-buttons">
-                    <a href="https://www.buymeacoffee.com/" target="_blank" class="btn btn-coffee">
-                        <i class="fas fa-mug-hot"></i>
-                        Buy Me a Coffee
-                    </a>
-                    
-                    <button class="btn btn-contact">
-                        <i class="fas fa-paper-plane"></i>
-                        Contact Me
-                    </button>
-                </div>
+      <div class="columns is-variable is-5">
+        <div class="column is-3 is-flex">
+          <div class="sidebar glass-panel" style="padding: 2rem;">
+            <div class="has-text-centered">
+              <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0lrl9Q9TZ5wOAQq1aa9tBahqjodY4BsiCwsSkUzS_JRGfxW2fjr5xUEL0S0TjmX5S8ezoFd1BzPzOQ0GrfpsJHiofTlmuOVakluz9_bA3UoM_RvHwcEweS-xzkynqmwsyxsp0JTRjEsqRVQfZMIGnqDYro9OVpPyWLuI3Ci-AOFaDzzgNavqVnmOQnYY/s1600/ChatGPT%20Image%20Jul%2019,%202025,%2006_44_44%20PM.png" 
+                   alt="Sanskar Srivastav" class="sidebar-image">
+              <h2 class="header-name">Sanskar Srivastav</h2>
+              <h5 style="color: var(--accent-color); margin-bottom: 1.5rem;">Sales Manager & After Sales Support</h5>
+              
+              <div class="social-icons">
+                <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://telegram.me/" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                <a href="https://github.com/" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/mr_sanskar_168" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+              
+              <a class="button is-small is-link is-outlined mt-3" href="mailto:example@example.com" aria-label="Contact via email">
+                <span class="icon"><i class="fas fa-envelope"></i></span>
+                <span>Contact Me</span>
+              </a>
+
+              <div class="theme-switch">
+                <input type="checkbox" id="theme-toggle">
+                <label for="theme-toggle" class="slider">
+                  <i class="fas fa-sun"></i>
+                  <i class="fas fa-moon"></i>
+                </label>
+              </div>
             </div>
+          </div>
         </div>
-
-        <!-- Terminal Section -->
-        <div class="terminal-container">
-            <div class="terminal glass-card">
-                <div class="terminal-header">
-                    <div class="terminal-buttons">
-                        <div class="terminal-button btn-close"></div>
-                        <div class="terminal-button btn-minimize"></div>
-                        <div class="terminal-button btn-maximize"></div>
-                    </div>
-                    <div class="terminal-title">terminal — bash — 80×24</div>
-                </div>
-                
-                <div class="terminal-window" id="terminal-output">
-                    <div class="terminal-line">
-                        <span class="output">Welcome to Darshan's interactive portfolio terminal.</span>
-                    </div>
-                    <div class="terminal-line">
-                        <span class="output">Type <span class="accent">help</span> for available commands.</span>
-                    </div>
-                    
-                    <div class="input-line">
-                        <span class="prompt">➜</span>
-                        <span class="directory">~</span>
-                        <input type="text" id="terminal-input" autocomplete="off" spellcheck="false">
-                        <span class="terminal-cursor"></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Confetti Container -->
-    <div id="confetti-container"></div>
-
-    <script>
-        // Create floating particles
-        function createParticles() {
-            const container = document.getElementById('particles-container');
-            const particleCount = 20;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random properties
-                const size = Math.random() * 10 + 5;
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                const duration = Math.random() * 30 + 20;
-                const delay = Math.random() * 10;
-                const opacity = Math.random() * 0.2 + 0.1;
-                
-                // Apply styles
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${posX}vw`;
-                particle.style.top = `${posY}vh`;
-                particle.style.animationDuration = `${duration}s`;
-                particle.style.animationDelay = `${delay}s`;
-                particle.style.opacity = opacity;
-                
-                container.appendChild(particle);
-            }
-        }
         
-        // Terminal functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
+        <div class="column is-flex">
+          <div class="terminal glass-panel" id="main-content">
+            <div class="terminal-bar">
+              <div class="terminal-btn btn-close"></div>
+              <div class="terminal-btn btn-minimize"></div>
+              <div class="terminal-btn btn-maximize"></div>
+              <div style="color: var(--text-secondary); font-family: 'Fira Code'; font-size: 0.8rem; text-align: center; flex-grow: 1;">
+                sanskar@portfolio:~ — bash — 80×24
+              </div>
+            </div>
             
-            const terminalOutput = document.getElementById('terminal-output');
-            const terminalInput = document.getElementById('terminal-input');
-            
-            // Focus input automatically
-            terminalInput.focus();
-            
-            // Command definitions
-            const commands = {
-                help: `
-<span class="accent">Available commands:</span>
-<span class="success">about</span>      - About me
-<span class="success">experience</span> - My professional experience
-<span class="success">skills</span>     - My skills and expertise
-<span class="success">contact</span>     - How to reach me
-<span class="success">clear</span>       - Clear the terminal
-<span class="success">neofetch</span>    - System information
-                `,
-                
-                about: `
-<span class="accent">About Darshan:</span>
-I'm a 17-year-old Sales Manager and After Sales Support professional based in India.
-Passionate about customer service and building lasting relationships.
-Currently pursuing BCA while gaining practical experience in sales.
-                `,
-                
-                experience: `
-<span class="accent">Professional Experience:</span>
-<span class="success">Sales Manager</span> (2021-Present)
-- Managed regional sales operations
-- Led team of 5 sales representatives
-- Increased quarterly sales by 25%
+            <div class="terminal-window" onclick="document.getElementById('command-input').focus();">
+              <div class="terminal-output" id="terminalOutput">
+                <div class="terminal-line">
+                  <span class="typewriter" style="color: var(--text-secondary);">Welcome to Sanskar's interactive portfolio. Type 'help' for commands.</span>
+                </div>
+              </div>
+              
+              <div class="terminal-line" style="display: flex; align-items: center;">
+                <span class="prompt">➜</span>
+                <span class="directory">~</span>
+                <span id="userInput"></span>
+                <input type="text" id="command-input" style="flex-grow: 1; background: transparent; border: none; outline: none; color: var(--text-primary); font-family: 'Fira Code'; caret-color: var(--accent-color);" aria-label="Terminal command input">
+                <span class="cursor"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<span class="success">After Sales Support</span> (2020-2021)
-- Handled customer queries and complaints
-- Maintained 95% customer satisfaction rate
-                `,
-                
-                skills: `
-<span class="accent">Technical Skills:</span>
-- HTML/CSS
-- Template Distribution
-- Content Licensing
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // DOM Elements
+  const terminalOutput = document.getElementById('terminalOutput');
+  const inputField = document.getElementById('command-input');
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+  
+  // State variables
+  let commandHistory = [];
+  let historyIndex = -1;
+  let currentTheme = 'dark';
+  
+  // Initialize theme
+  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+  setTheme(savedTheme);
+  if (savedTheme === 'light') themeToggle.checked = true;
+  
+  // Theme toggle event
+  themeToggle.addEventListener('change', function() {
+    const newTheme = this.checked ? 'light' : 'dark';
+    setTheme(newTheme);
+    localStorage.setItem('portfolio-theme', newTheme);
+  });
 
-<span class="accent">Professional Skills:</span>
-- Sales Management
-- Customer Relationship Management
-- After Sales Support
-                `,
-                
-                contact: `
-<span class="accent">Contact Information:</span>
-Email: <span class="directory">official.vasudev.coder@example.com</span>
-Telegram: <span class="directory">https://t.me/+RStZXln6Z4o5ZjY1</span>
-Instagram: <span class="directory">mr_sanskar_168</span>
-                `,
-                
-                clear: '',
-                
-                // Easter eggs
-                sudo: `<span class="error">Error:</span> Permission denied. This incident will be reported.`,
-                neofetch: `
-<span class="accent">SanskarOS v2.0</span>
--------------------------
-OS: Sales Professional
-Shell: bash 5.0
-Location: India
-Skills: Sales, Support, Tech
-                `,
-                coffee: `
-<span class="accent">Thank you for your support!</span>
-Your coffee will help me create more amazing projects.
-<span style="color: var(--coffee)">☕ Cheers!</span>
-                `
-            };
-            
-            // Handle command input
-            terminalInput.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    const input = this.value.trim().toLowerCase();
-                    this.value = '';
-                    
-                    if (!input) return;
-                    
-                    // Display command
-                    const commandLine = document.createElement('div');
-                    commandLine.className = 'terminal-line';
-                    commandLine.innerHTML = `
-                        <span class="prompt">➜</span>
-                        <span class="directory">~</span>
-                        <span class="command">${input}</span>
-                    `;
-                    terminalOutput.insertBefore(commandLine, terminalOutput.lastElementChild);
-                    
-                    // Handle clear command
-                    if (input === 'clear') {
-                        while (terminalOutput.children.length > 2) {
-                            terminalOutput.removeChild(terminalOutput.children[1]);
-                        }
-                        return;
-                    }
-                    
-                    // Handle coffee command
-                    if (input === 'coffee') {
-                        createConfetti();
-                    }
-                    
-                    // Display output
-                    const output = document.createElement('div');
-                    output.className = 'terminal-line';
-                    
-                    if (commands[input]) {
-                        output.innerHTML = commands[input];
-                    } else {
-                        output.innerHTML = `
-                            <span class="error">Command not found:</span> ${input}
-                            <br>Type <span class="success">help</span> for available commands
-                        `;
-                    }
-                    
-                    terminalOutput.insertBefore(output, terminalOutput.lastElementChild);
-                    
-                    // Scroll to bottom
-                    terminalOutput.scrollTop = terminalOutput.scrollHeight;
-                }
-            });
-            
-            // Click anywhere in terminal to focus input
-            document.querySelector('.terminal-window').addEventListener('click', function() {
-                terminalInput.focus();
-            });
-            
-            // Create confetti effect
-            function createConfetti() {
-                const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
-                const container = document.getElementById('confetti-container');
-                
-                for (let i = 0; i < 100; i++) {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    confetti.style.left = `${Math.random() * 100}vw`;
-                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.width = `${Math.random() * 8 + 4}px`;
-                    confetti.style.height = `${Math.random() * 8 + 4}px`;
-                    confetti.style.animationDelay = `${Math.random() * 2}s`;
-                    
-                    container.appendChild(confetti);
-                    
-                    // Remove after animation
-                    setTimeout(() => {
-                        confetti.remove();
-                    }, 3000);
-                }
-            }
-            
-            // Make coffee button trigger confetti
-            document.querySelector('.btn-coffee').addEventListener('click', function() {
-                createConfetti();
-            });
-        });
-    </script>
+  // Set theme function
+  function setTheme(theme) {
+    currentTheme = theme;
+    body.setAttribute('data-theme', theme);
+  }
+
+  // Focus input field automatically
+  inputField.focus();
+  
+  // Command definitions
+  const COMMANDS = {
+    help: {
+      description: "Show available commands",
+      execute: () => `
+        <span class="code">Available commands:</span><br><br>
+        <span class="code">about</span> - About me<br>
+        <span class="code">experience</span> - My professional experience<br>
+        <span class="code">skills</span> - My skills and expertise<br>
+        <span class="code">projects</span> - View my projects<br>
+        <span class="code">contact</span> - Contact information<br>
+        <span class="code">theme</span> - Toggle light/dark mode<br>
+        <span class="code">clear</span> - Clear terminal<br><br>
+        <span class="warning">Tip:</span> Press <span class="code">↑/↓</span> to navigate command history, <span class="code">Tab</span> to autocomplete
+      `
+    },
+    
+    about: {
+      description: "About Sanskar Srivastav",
+      execute: () => `
+        <span class="code">About Sanskar:</span><br><br>
+        Hello! I'm Sanskar Srivastav, a 17-year-old Sales Manager and After Sales Support professional based in India.<br><br>
+        
+        <span class="code">Key Attributes:</span><br>
+        • Passionate about customer service and building lasting relationships<br>
+        • Strong problem-solving and communication skills<br>
+        • Quick learner with adaptability to new technologies<br><br>
+        
+        When I'm not working, I enjoy learning about new technologies and improving my skills.
+      `
+    },
+    
+    experience: {
+      description: "Professional experience",
+      execute: () => `
+        <span class="code">Professional Experience:</span><br><br>
+        <strong>Sales Manager</strong> (2021-Present)<br>
+        • Managed sales operations and customer relationships<br>
+        • Developed sales strategies that increased revenue by 30%<br>
+        • Led a team of 5 sales representatives<br><br>
+        
+        <strong>After Sales Support</strong> (2020-2021)<br>
+        • Handled customer complaints and service requests<br>
+        • Maintained 95%+ customer satisfaction rating<br>
+        • Implemented new support ticketing system<br><br>
+        
+        <strong>Sales Intern</strong> (Summer 2019)<br>
+        • Assisted senior sales staff with daily operations<br>
+        • Learned fundamentals of sales and customer service
+      `
+    },
+    
+    skills: {
+      description: "Skills and expertise",
+      execute: () => `
+        <span class="code">Skills:</span><br><br>
+        <strong>Sales & Customer Service</strong><br>
+        • Customer Relationship Management <span class="skill-bar" style="width: 90%"></span><br>
+        • Negotiation <span class="skill-bar" style="width: 85%"></span><br>
+        • Problem Solving <span class="skill-bar" style="width: 88%"></span><br><br>
+        
+        <strong>Technical Skills</strong><br>
+        • HTML/CSS <span class="skill-bar" style="width: 75%"></span><br>
+        • Template Distribution <span class="skill-bar" style="width: 80%"></span><br>
+        • Microsoft Office <span class="skill-bar" style="width: 90%"></span><br><br>
+        
+        <strong>Languages</strong><br>
+        • English (Fluent)<br>
+        • Hindi (Native)
+      `
+    },
+    
+    projects: {
+      description: "Show projects",
+      execute: () => `
+        <span class="code">Featured Projects:</span><br><br>
+        
+        <div class="project-card">
+          <strong>Customer Portal Redesign</strong><br>
+          • Redesigned customer portal interface<br>
+          • Improved navigation and accessibility<br>
+          • Resulted in 40% faster issue resolution<br>
+          <span onclick="showProjectDetails('portal')" class="link">View details</span>
+        </div>
+        
+        <div class="project-card">
+          <strong>Sales Training Program</strong><br>
+          • Developed comprehensive training materials<br>
+          • Conducted workshops for new hires<br>
+          • Reduced onboarding time by 25%<br>
+          <span onclick="showProjectDetails('training')" class="link">View details</span>
+        </div>
+        
+        <div class="project-card">
+          <strong>Support Knowledge Base</strong><br>
+          • Created searchable knowledge base<br>
+          • Documented common issues and solutions<br>
+          • Decreased support calls by 30%<br>
+          <span onclick="showProjectDetails('knowledge')" class="link">View details</span>
+        </div>
+      `
+    },
+    
+    contact: {
+      description: "Contact information",
+      execute: () => `
+        You can reach me at:<br><br>
+        • Email: <span class="code">example@example.com</span><br>
+        • Telegram: <a href="https://telegram.dog/mr_sanskar_168" class="link" target="_blank" rel="noopener noreferrer">@mr_sanskar_168</a><br>
+        • Instagram: <a href="https://www.instagram.com/mr_sanskar_168/" class="link" target="_blank" rel="noopener noreferrer">@mr_sanskar_168</a><br>
+        • LinkedIn: <a href="https://linkedin.com/in/" class="link" target="_blank" rel="noopener noreferrer">Sanskar Srivastav</a><br><br>
+        
+        <button onclick="showContactForm()" class="button is-small is-link is-outlined">Send Message</button>
+      `
+    },
+    
+    theme: {
+      description: "Toggle light/dark theme",
+      execute: () => {
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+        localStorage.setItem('portfolio-theme', newTheme);
+        themeToggle.checked = newTheme === 'light';
+        return `Theme changed to <span class="code">${newTheme}</span> mode`;
+      }
+    },
+    
+    clear: {
+      description: "Clear terminal",
+      execute: () => {
+        terminalOutput.innerHTML = '';
+        return '';
+      }
+    },
+    
+    // Easter eggs
+    sudo: {
+      description: "Make me a sandwich",
+      execute: () => `<span style="color: var(--error);">Error:</span> Permission denied. Did you mean 'make me a sandwich'?`
+    },
+    
+    neofetch: {
+      description: "Show system information",
+      execute: () => `
+        <div style="font-family: 'Fira Code';">
+          <span class="directory">sanskar@portfolio</span><br>
+          ----------------------------<br>
+          <span class="prompt">OS:</span> SanskarOS 17.0<br>
+          <span class="prompt">Shell:</span> bash 5.0<br>
+          <span class="prompt">Skills:</span> Sales, Support, Tech<br>
+          <span class="prompt">Location:</span> India<br>
+          <span class="prompt">Theme:</span> ${currentTheme}<br>
+          <span class="prompt">Terminal:</span> Web v2.0<br>
+          <span class="prompt">Motto:</span> "Customer satisfaction first"
+        </div>
+      `
+    },
+    
+    make: {
+      description: "Make me a sandwich",
+      execute: () => `Okay. Making you a sandwich...<br><br>
+        <pre style="color: var(--accent-color);">
+        🍞~~~~~~🍞
+        |  🥪  |
+        🍞~~~~~~🍞
+        </pre>
+        Here you go! Enjoy your sandwich.`
+    },
+    
+    secret: {
+      description: "You found a secret command!",
+      hidden: true,
+      execute: () => {
+        const messages = [
+          "The cake is a lie.",
+          "There are no secrets here... or are there?",
+          "You found me! But there's nothing here.",
+          "Try typing 'make me a sandwich'",
+          "01010100 01101000 01101001 01110011 00100000 01101001 01110011 00100000 01100010 01101001 01101110 01100001 01110010 01111001 00100000 01100110 01101111 01110010 00100000 01101000 01101001"
+        ];
+        return messages[Math.floor(Math.random() * messages.length)];
+      }
+    }
+  };
+
+  // Command aliases
+  const ALIASES = {
+    '?': 'help',
+    'ls': 'help',
+    'whoami': 'about',
+    'cv': 'experience',
+    'resume': 'experience',
+    'social': 'contact',
+    'email': 'contact',
+    'switch': 'theme',
+    'cls': 'clear',
+    'exit': 'clear'
+  };
+
+  // Tab completion
+  const commandList = Object.keys(COMMANDS).filter(cmd => !COMMANDS[cmd].hidden);
+
+  // Handle command input
+  inputField.addEventListener('keydown', function(e) {
+    // Tab completion
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      const input = this.value.trim().toLowerCase();
+      
+      if (!input) return;
+      
+      // Find matching commands
+      const matches = commandList.filter(cmd => cmd.startsWith(input));
+      
+      if (matches.length === 1) {
+        this.value = matches[0];
+      } else if (matches.length > 1) {
+        terminalOutput.innerHTML += `
+          <div class="terminal-line">
+            <span class="prompt">➜</span>
+            <span class="directory">~</span>
+            ${input}
+          </div>
+          <div class="terminal-line">${matches.join(' ')}</div>
+        `;
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+      }
+    }
+    
+    // Command history navigation
+    if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (commandHistory.length > 0 && historyIndex < commandHistory.length - 1) {
+        historyIndex++;
+        this.value = commandHistory[commandHistory.length - 1 - historyIndex];
+      }
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIndex > 0) {
+        historyIndex--;
+        this.value = commandHistory[commandHistory.length - 1 - historyIndex];
+      } else {
+        historyIndex = -1;
+        this.value = '';
+      }
+    }
+  });
+
+  inputField.addEventListener('keypress', async function(e) {
+    if (e.key === 'Enter') {
+      const input = this.value.trim();
+      this.value = '';
+      
+      if (!input) return;
+      
+      // Add to command history
+      commandHistory.push(input);
+      historyIndex = -1;
+      
+      // Display the command
+      terminalOutput.innerHTML += `
+        <div class="terminal-line">
+          <span class="prompt">➜</span>
+          <span class="directory">~</span>
+          ${input}
+        </div>
+      `;
+      
+      // Process command
+      const command = input.toLowerCase();
+      const baseCommand = ALIASES[command] || command;
+      
+      if (COMMANDS[baseCommand]) {
+        const output = await COMMANDS[baseCommand].execute();
+        if (output) {
+          terminalOutput.innerHTML += `<div class="terminal-line">${output}</div>`;
+        }
+      } else {
+        terminalOutput.innerHTML += `
+          <div class="terminal-line">
+            <span style="color: var(--error);">Error:</span> Command not found. Type <span class="code">help</span> for available commands.
+          </div>
+        `;
+      }
+      
+      // Scroll to bottom
+      terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    }
+  });
+
+  // Global functions
+  window.showProjectDetails = function(projectId) {
+    const details = {
+      portal: `
+        <span class="code">Customer Portal Redesign</span><br><br>
+        <strong>Challenge:</strong> Outdated interface caused customer frustration<br>
+        <strong>Solution:</strong> Complete UI overhaul with focus on usability<br>
+        <strong>Technologies:</strong> HTML, CSS, JavaScript<br>
+        <strong>Results:</strong><br>
+        • 40% faster issue resolution<br>
+        • 25% reduction in support calls<br>
+        • Customer satisfaction increased to 98%<br><br>
+        <span class="warning">Note:</span> Confidential details omitted
+      `,
+      training: `
+        <span class="code">Sales Training Program</span><br><br>
+        <strong>Challenge:</strong> Inconsistent onboarding for new hires<br>
+        <strong>Solution:</strong> Standardized training curriculum<br>
+        <strong>Components:</strong><br>
+        • Product knowledge modules<br>
+        • Sales technique workshops<br>
+        • Role-playing exercises<br>
+        • Assessment quizzes<br><br>
+        <strong>Results:</strong><br>
+        • 25% faster onboarding<br>
+        • Higher first-month sales performance<br>
+        • Improved team consistency
+      `,
+      knowledge: `
+        <span class="code">Support Knowledge Base</span><br><br>
+        <strong>Challenge:</strong> Repetitive support calls for common issues<br>
+        <strong>Solution:</strong> Searchable knowledge base with solutions<br>
+        <strong>Features:</strong><br>
+        • Step-by-step troubleshooting<br>
+        • Video tutorials<br>
+        • FAQ section<br>
+        • Feedback system<br><br>
+        <strong>Results:</strong><br>
+        • 30% reduction in support calls<br>
+        • Faster customer self-service<br>
+        • Improved support team efficiency
+      `
+    };
+    
+    terminalOutput.innerHTML += `
+      <div class="terminal-line">${details[projectId]}</div>
+      <div class="terminal-line">
+        <span onclick="terminalOutput.innerHTML += '<div class=\\'terminal-line\\'>${COMMANDS.projects.execute()}</div>'" class="link">← Back to projects</span>
+      </div>
+    `;
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  };
+
+  window.showContactForm = function() {
+    terminalOutput.innerHTML += `
+      <div class="terminal-line">
+        <span class="code">Contact Form</span><br><br>
+        <div style="margin-bottom: 0.5rem;">
+          <label style="display: block; margin-bottom: 0.2rem;">Your Email:</label>
+          <input type="text" style="width: 100%; padding: 0.3rem; background: var(--secondary-bg); border: 1px solid var(--terminal-bar); color: var(--text-primary); border-radius: 4px;">
+        </div>
+        <div style="margin-bottom: 0.5rem;">
+          <label style="display: block; margin-bottom: 0.2rem;">Message:</label>
+          <textarea style="width: 100%; height: 100px; padding: 0.3rem; background: var(--secondary-bg); border: 1px solid var(--terminal-bar); color: var(--text-primary); border-radius: 4px;"></textarea>
+        </div>
+        <button onclick="terminalOutput.innerHTML += '<div class=\\'terminal-line\\'>Thank you! Your message has been sent (not really, this is a demo).</div>'" class="button is-small is-link">Send</button>
+        <button onclick="terminalOutput.innerHTML += '<div class=\\'terminal-line\\'>${COMMANDS.contact.execute()}</div>'" class="button is-small is-outlined" style="margin-left: 0.5rem;">Cancel</button>
+      </div>
+    `;
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  };
+});
+
+// Initialize typewriter effect
+document.addEventListener('DOMContentLoaded', function() {
+  const typewriter = document.querySelector('.typewriter');
+  setTimeout(() => {
+    typewriter.style.animation = 'none';
+    typewriter.style.borderRight = 'none';
+    typewriter.style.whiteSpace = 'normal';
+  }, 3500);
+});
+</script>
 </body>
 </html>
