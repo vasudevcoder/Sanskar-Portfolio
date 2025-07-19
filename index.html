@@ -20,6 +20,7 @@
       --error: #d7566a;
       --directory: #75e1e7;
       --warning: #ffcc00;
+      --coffee: #6F4E37;
     }
 
     [data-theme="light"] {
@@ -33,6 +34,7 @@
       --success: #2e7d32;
       --error: #c62828;
       --directory: #1565c0;
+      --coffee: #C4A484;
     }
 
     body {
@@ -244,6 +246,99 @@
     .fa-sun { left: 8px; }
     .fa-moon { right: 8px; }
 
+    /* Coffee Button Styles */
+    .coffee-btn {
+      position: relative;
+      background: var(--coffee);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(111, 78, 55, 0.3);
+      margin-top: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .coffee-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(111, 78, 55, 0.4);
+    }
+
+    .coffee-btn:active {
+      transform: translateY(1px);
+    }
+
+    .coffee-btn::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+      transform: scale(0);
+      transition: transform 0.7s ease;
+    }
+
+    .coffee-btn:hover::before {
+      transform: scale(1);
+    }
+
+    .coffee-icon {
+      margin-right: 8px;
+      font-size: 1.2rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .steam {
+      position: absolute;
+      background: white;
+      border-radius: 10px;
+      opacity: 0.8;
+    }
+
+    .steam-1 {
+      width: 8px;
+      height: 20px;
+      top: -15px;
+      left: 15px;
+      animation: steam-anim 3s ease-out infinite;
+    }
+
+    .steam-2 {
+      width: 6px;
+      height: 15px;
+      top: -12px;
+      left: 25px;
+      animation: steam-anim 3s ease-out 0.5s infinite;
+    }
+
+    .steam-3 {
+      width: 5px;
+      height: 12px;
+      top: -10px;
+      left: 35px;
+      animation: steam-anim 3s ease-out 1s infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @keyframes steam-anim {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      100% { transform: translateY(-20px) scale(1.5); opacity: 0; }
+    }
+
+    /* Responsive Improvements */
     @media (max-width: 768px) {
       .columns {
         flex-direction: column;
@@ -255,6 +350,42 @@
       .terminal-window {
         height: 400px;
       }
+      .hero-body {
+        padding: 1rem;
+      }
+      .sidebar-image {
+        width: 120px;
+        height: 120px;
+      }
+      .header-name {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .coffee-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+      .social-icons a {
+        font-size: 1rem;
+        margin: 0 0.3rem;
+      }
+    }
+
+    /* Embeddable Style */
+    .embeddable-mode {
+      margin: 0;
+      padding: 0;
+    }
+    .embeddable-mode .hero.is-fullheight {
+      min-height: auto;
+    }
+    .embeddable-mode .hero-body {
+      padding: 1rem 0;
+    }
+    .embeddable-mode .glass-panel {
+      box-shadow: none;
     }
 
     /* Accessibility focus styles */
@@ -291,7 +422,7 @@
               <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0lrl9Q9TZ5wOAQq1aa9tBahqjodY4BsiCwsSkUzS_JRGfxW2fjr5xUEL0S0TjmX5S8ezoFd1BzPzOQ0GrfpsJHiofTlmuOVakluz9_bA3UoM_RvHwcEweS-xzkynqmwsyxsp0JTRjEsqRVQfZMIGnqDYro9OVpPyWLuI3Ci-AOFaDzzgNavqVnmOQnYY/s1600/ChatGPT%20Image%20Jul%2019,%202025,%2006_44_44%20PM.png" 
                    alt="Sanskar Srivastav" class="sidebar-image">
               <h2 class="header-name">Sanskar Srivastav</h2>
-              <h5 style="color: var(--accent-color); margin-bottom: 1.5rem;">Sales Manager & After Sales Support</h5>
+              <h5 style="color: var(--accent-color); margin-bottom: 1.5rem;">Web Developer & UI UX Designer</h5>
               
               <div class="social-icons">
                 <a href="https://twitter.com/" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
@@ -305,6 +436,15 @@
                 <span class="icon"><i class="fas fa-envelope"></i></span>
                 <span>Contact Me</span>
               </a>
+
+              <!-- Best Coffee Button -->
+              <button class="coffee-btn" id="coffee-btn" aria-label="Buy me a coffee">
+                <span class="coffee-icon">☕</span>
+                <span>Buy Me Coffee</span>
+                <div class="steam steam-1"></div>
+                <div class="steam steam-2"></div>
+                <div class="steam steam-3"></div>
+              </button>
 
               <div class="theme-switch">
                 <input type="checkbox" id="theme-toggle">
@@ -324,7 +464,7 @@
               <div class="terminal-btn btn-minimize"></div>
               <div class="terminal-btn btn-maximize"></div>
               <div style="color: var(--text-secondary); font-family: 'Fira Code'; font-size: 0.8rem; text-align: center; flex-grow: 1;">
-                sans.Terminal — bash — 80×24
+                sanskar@portfolio:~ — bash — 80×24
               </div>
             </div>
             
@@ -356,6 +496,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const terminalOutput = document.getElementById('terminalOutput');
   const inputField = document.getElementById('command-input');
   const themeToggle = document.getElementById('theme-toggle');
+  const coffeeBtn = document.getElementById('coffee-btn');
   const body = document.body;
   
   // State variables
@@ -373,6 +514,37 @@ document.addEventListener('DOMContentLoaded', function() {
     const newTheme = this.checked ? 'light' : 'dark';
     setTheme(newTheme);
     localStorage.setItem('portfolio-theme', newTheme);
+  });
+
+  // Coffee button click event
+  coffeeBtn.addEventListener('click', function() {
+    terminalOutput.innerHTML += `
+      <div class="terminal-line">
+        <span class="prompt">➜</span>
+        <span class="directory">~</span>
+        buy-coffee
+      </div>
+      <div class="terminal-line">
+        <span class="code">Thanks for the coffee!</span> 😊<br><br>
+        <pre style="color: var(--coffee); font-family: 'Fira Code'; line-height: 1.2;">
+           )  (
+          (   ) )
+           ) ( (
+         _______)_
+        /---------/
+       /   ☕    /
+      /_________/
+        </pre>
+        <span class="warning">Note:</span> This is a demo button. For actual donations, you'd link to a payment service.
+      </div>
+    `;
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+    
+    // Add animation effect to button
+    this.classList.add('active');
+    setTimeout(() => {
+      this.classList.remove('active');
+    }, 1000);
   });
 
   // Set theme function
@@ -396,6 +568,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <span class="code">projects</span> - View my projects<br>
         <span class="code">contact</span> - Contact information<br>
         <span class="code">theme</span> - Toggle light/dark mode<br>
+        <span class="code">coffee</span> - Buy me a coffee<br>
         <span class="code">clear</span> - Clear terminal<br><br>
         <span class="warning">Tip:</span> Press <span class="code">↑/↓</span> to navigate command history, <span class="code">Tab</span> to autocomplete
       `
@@ -511,6 +684,14 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     },
     
+    coffee: {
+      description: "Buy me a coffee",
+      execute: () => {
+        document.getElementById('coffee-btn').click();
+        return `Opening coffee interface...`;
+      }
+    },
+    
     clear: {
       description: "Clear terminal",
       execute: () => {
@@ -580,7 +761,8 @@ document.addEventListener('DOMContentLoaded', function() {
     'email': 'contact',
     'switch': 'theme',
     'cls': 'clear',
-    'exit': 'clear'
+    'exit': 'clear',
+    'brew': 'coffee'
   };
 
   // Tab completion
@@ -756,6 +938,11 @@ document.addEventListener('DOMContentLoaded', function() {
     typewriter.style.whiteSpace = 'normal';
   }, 3500);
 });
+
+// Make embeddable
+function setEmbeddableMode() {
+  document.body.classList.add('embeddable-mode');
+}
 </script>
 </body>
 </html>
